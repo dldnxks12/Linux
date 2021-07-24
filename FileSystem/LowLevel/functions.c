@@ -35,7 +35,7 @@ int close(int fd); // 해당 하는 file descriptor 제거
 // 열린 file descriptor를 이용해서 file로 부터 데이터를 읽어들임 , data를 읽은 만큼 file 내의 offset이 증가 
 // fd : file descriptor , buf : 읽어 들인 데이터 저장하는 버퍼의 포인터형 변수 , count : 한 번에 읽어 들인 데이터 바이트 수 
 // 읽어들인 바이트 수를 return 
-#include <unistd.h>
+#include <unistd.h> // Unix 표준 시스템 콜을 위한 헤더 
 ssize_t read(int fd, void* buf , size_t count);
 
 // write()
