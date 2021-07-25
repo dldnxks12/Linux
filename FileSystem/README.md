@@ -42,7 +42,6 @@ Linux권한은 사용자와 그룹으로 나눌 수 있다.
 
 - ls -l : file authority에 대한 정보
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3f7e5e6b-0a86-44ed-96c3-9dce4a8fdeee/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3f7e5e6b-0a86-44ed-96c3-9dce4a8fdeee/Untitled.png)
 
 1. file type 
 2. rwx (read write execute) : 소유자 → 그룹 → 다른 사람 순
