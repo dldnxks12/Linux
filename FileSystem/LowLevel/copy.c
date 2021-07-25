@@ -19,7 +19,7 @@ Also use error 출력 to stderr (모니터에 연결) with perror  (prror : 표�
 #include <fcntl.h>  // for file setting or modifying
 #include <stdio.h> // standard in out - perror()
 #include <sys/types.h>
-#include <sys/stat.h>
+#include <sys/stat.h> // file의 종류, 정보를 알아낼 수 있는 header file 
 
 // file call -> with 2 argv 1. filename 2. copied filename
 
