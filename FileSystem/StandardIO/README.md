@@ -44,6 +44,9 @@ int fflush(FILE *fp)
 fclose() 함수가 동작할 때 내부적으로 fflush() 함수가 호출되므로 별도로 fflush()를 call할 필요는 없다. 
 
 
+- 그 외 Stdio의 함수 
+
+![222](https://user-images.githubusercontent.com/59076451/126884992-ed5fe3b3-dc40-4bdc-be33-9b73659a947e.jpg)
 
 
 
