@@ -96,6 +96,8 @@
 
 	#### 아래 signal() 함수는 c언어 문법을 이해하기 위함 
 	
+	signal() 함수의 첫 번째 인자 signum으로는 처리하고 싶은 Signal 명을 사용하면 된다.
+	두 번째 인자로는 시그널을 처리하기 위한 시그널 핸들러를 등록하는데, 핸들러는 시그널이 발생하면 호출될 함수의 주소를 준다. 
 
 	#include <signal.h> // header for signal , more -> kldp.org/node/158641
 	
@@ -103,8 +105,12 @@
 
 	sighandler_t signal(int signum, sighandler_t handler) // function pointer return 
 	
+	// typedef 를 걷어내면 더 자명하게 보인다.
+	// sighandler_t signal( int signum, void(*sighandler_t)(int) )
 
 
+	-> 시그널이 발생하면 이를 받아서 미리 등록된 시그널 핸들러가 실행되는데, SIGKILL, SIGSTOP 시그널에는 시그널 핸들러를 등록할 수 없다!	
+	
 
 - fork() , exec()
 
