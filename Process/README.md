@@ -46,8 +46,36 @@
 
 	kill : process kill
 
-	top : 현재 시스템의 프로세스 우선순위, CPU 등의 시스템 사용량 정보 	
+	top : 현재 시스템의 프로세스 우선순위, CPU 등의 시스템 사용량 정보
+		***특히 아래와 같은 정보를 알 수 있다.***
+		- 프로세스의 우선 순위 (PR)
+		- 프로세스의 경쟁 상대 (Race Condition)
+		- Zombie Process
+		- 메모리 누수 (Memory Leak)
 
+		- 프로세스 우선 순위
+			UNIX 스케쥴러는 모든 프로세서에게 우선순위를 부여한다.
+			우선 순위가 높은 프로세서일수록 높은 프로세스 시간을 할당받고 자주 수행된다..
+			Linux의 nice command를 통해 프로그램이 시작될 때 우선순위 값을 부여할 수 있다.
+			"sudo nice -n-10 ls "
+
+				PR : 프로세스의 우선순위
+				NI : NICE(nice value)의 값으로 마이너스 값을 가지는 값이 우선순위 높다.
+				- -20~+19 까지의 범위를 가지며, 값이 작을 수록 우선 순위가 높다.
+
+- Process background or foreground
+
+	Linux에서 여러가지의 App을 동시에 실행할 수 있다.
+	일반적으로 App을 실행하면 foreground 모드로 실행되고, 사용자의 Keyboard 입력이나 terminal로 출력할 수도 있다.
+	하나의 terminal에서 foreground 모드로는 하나의 App만 실행할 수 있다.
+		여러개의 App을 동시에 실행하려면 다른 App들은 backgorund mode로 실행한다.
+
+	현재 foreground로 실행중인 process -> background로 실행하려면 Ctrl+Z를 입력 
+
+	background로 App을 실행하고 싶다면 실행을 위한 명령어 뒤에 &를 붙인다 ex) ./loop &
+	다시 foreground 모드로 바꾸려면 fg %[작업번호] 를 입력한다.
+
+	
 - Signal
 
     시그널은 프로세스들 사이에서 비동기적인 사건의 발생을 전달하는 방법
