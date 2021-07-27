@@ -78,15 +78,33 @@
 	
 - Signal
 
-    시그널은 프로세스들 사이에서 비동기적인 사건의 발생을 전달하는 방법
+    시그널은 프로세스들 사이에서 비동기적인 사건의 발생을 전달하는 방법 - Softward 적인 Interrupt로 생각할 수 있다.
+	- 프로세스는 다른 프로세스에 시그널을 전달/설정할 수 있고, 해당 프로세스는 비동기적으로 시그널을 받아서 처리할 수 있다.
+	- 예를 들어 SIGCONT 시그널은 같은 세션에 있는 임의의 프로세스에 전달할 수 있다.
 
-    → Ctrl+C (종료)
+    → C프로세스를 실행하는 도중 Ctrl+C 를 누르면 OS에서 Interrupt를 의미하는 Signal을 발생시키고 이를 해당 process에 전달하여 중단시킬 수 있다. 
 
     → 숫자를 0으로 나누는 등의 error를 알리기 위한 signal
 
     → Linux에서 이러한 signal을 처리하는 방법도 지원한다.
 	- 실행 중인 프로세스는 사용자가 terminal에서 ctrl+c or ctrl+z를 눌러 발생하는 interrupt에 의해 멈추거나 중지된다.
 	- 이 때 OS에서 Signal이 발생해 해당 process에 전달된다.
+
+
+	signal()함수 -> 시그널이 발생하면 보통 기본 설정값으로 처리된다. 하지만 프로세스 내에서 해당 시그널에 대해서 처리를 지정할 수도 있다!
+	시그널을 처리하기 위해서는 시그널 핸들러를 생성한 후 signal() 함수를 통해 시그널을 등록하면 된다.
+
+	#### 아래 signal() 함수는 c언어 문법을 이해하기 위함 
+	
+
+	#include <signal.h> // header for signal , more -> kldp.org/node/158641
+	
+	typedef void (*sighandler_t)(int); // function alias + function pointer 
+
+	sighandler_t signal(int signum, sighandler_t handler) // function pointer return 
+	
+
+
 
 - fork() , exec()
 
