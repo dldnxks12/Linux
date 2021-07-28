@@ -15,6 +15,8 @@
 
     → Linux에서는 시분할 알고리즘을 통해 프로세스를 제어하는데, 이를 통해 여러 개의 일을 동시에 할 수 있다. ⇒ Thread 
 
+![2222](https://user-images.githubusercontent.com/59076451/127248997-42663385-cd00-40f1-8095-92d9e4ad7acc.jpg)
+
 - Process Data Structure
 
 	사용자 구조 -> 프로세스 테이블 -> 프로세스 영역 테이블(가상 메모리) -> 메모리(실제 메모리)
@@ -62,6 +64,9 @@
 				PR : 프로세스의 우선순위
 				NI : NICE(nice value)의 값으로 마이너스 값을 가지는 값이 우선순위 높다.
 				- -20~+19 까지의 범위를 가지며, 값이 작을 수록 우선 순위가 높다.
+
+![111](https://user-images.githubusercontent.com/59076451/127248996-5c2800a9-5306-4e94-99dd-22d3b2a1f5aa.PNG)
+
 
 - Process background or foreground
 
