@@ -4,6 +4,12 @@
 표준 입출력 함수에서 데이터는 Stream으로 취급한다.
 프로세스를 생성하면 자동으로 stdin, stdout, stderr가 연결된다. (fd : 0 1 2)
 
+- 표준 입출력 
+	stdin  : scanf
+	stdout : printf
+	stderr : perror
+
+
 C에서 이 Stream은 FILE Structure의 file pointer를 통해 다룰 수 있다.
 FILE Structure는 <stdio.h>에 정의되어있다.
 
