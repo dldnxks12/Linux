@@ -14,12 +14,12 @@
 printf  : 서식화된 문자열을 표준 출력(stdout)에 보내는 것 
 	- int printf(const char *format-string, argument-list)
 	
-fprintf : file stream에 서식화된 문자열을 출력 
-	- int fprintf(FILE *stream, const char *format-string, argument-list)
-		- 즉, stdout으로 출력을 내보낼 수 있고, 특정 file에 출력을 내보낼 수도 있다. (ex 메모장)
+fprintf : file stream에 서식화된 문자열을 출력<br> 
+	int fprintf(FILE *stream, const char *format-string, argument-list)<br>
+		즉, stdout으로 출력을 내보낼 수 있고, 특정 file에 출력을 내보낼 수도 있다. (ex 메모장)
 		
-sprintf : 배열로 이러우진 버퍼에 일련의 서식 문자열을 입력하는 함수. 즉, file이나 모니터가 아니라 버퍼에 문자열을 출력	
-	- int sprintf(char[] buffer, const char *format-string, argument-list);
+sprintf : 배열로 이러우진 버퍼에 일련의 서식 문자열을 입력하는 함수. 즉, file이나 모니터가 아니라 버퍼에 문자열을 출력	<br>
+	int sprintf(char[] buffer, const char *format-string, argument-list);
 
 	sprintf(string, "hello world. My name is %s", "종수");
 	printf("%s",string);
