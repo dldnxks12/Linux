@@ -11,8 +11,7 @@
 
 - printf, fprintf, sprintf 차이
 
-printf  : 서식화된 문자열을 표준 출력(stdout)에 보내는 것 
-	- int printf(const char *format-string, argument-list)
+printf  : 서식화된 문자열을 표준 출력(stdout)에 보내는 것 <br>- int printf(const char *format-string, argument-list)
 	
 fprintf : file stream에 서식화된 문자열을 출력<br>-int fprintf(FILE *stream, const char *format-string, argument-list)<br>-즉, stdout으로 출력을 내보낼 수 있고, 특정 file에 출력을 내보낼 수도 있다. (ex 메모장)
 		
