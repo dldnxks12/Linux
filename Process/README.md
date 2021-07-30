@@ -1,1 +1,3 @@
-#### Process와 Thread
+### Process와 Thread
+
+##### 각 Directory의 README 참고 
