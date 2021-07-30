@@ -9,6 +9,30 @@
 	stdout : printf
 	stderr : perror
 
+- printf, fprintf, sprintf 차이
+
+printf  : 서식화된 문자열을 표준 출력(stdout)에 보내는 것 
+	int printf(const char *format-string, argument-list)
+fprintf : file stream에 서식화된 문자열을 출력 
+	int fprintf(FILE *stream, const char *format-string, argument-list)
+		즉, stdout으로 출력을 내보낼 수 있고, 특정 file에 출력을 내보낼 수도 있다. (ex 메모장)
+sprintf : 배열로 이러우진 버퍼에 일련의 서식 문자열을 입력하는 함수. 즉, file이나 모니터가 아니라 버퍼에 문자열을 출력
+	int sprintf(char[] buffer, const char *format-string, argument-list);
+
+	sprintf(string, "hello world. My name is %s", "종수");
+	printf("%s",string);
+		-> hello world. My name is 종수 출력 
+			
+
+**참고 (문자열과 sprintf)
+
+	string이라는 문자열이 따로 있는 C++과 달리 C는 모든 문자, 문자열을 char형으로 처리한다.
+	즉, 문자는 char, 문자열은 char* or char[]을 이용하여 string.h header를 통해 처리한다.
+	문자열 상수는 한 번 선언되면 새로 할당하는 것 말고는 내용을 변경할 수 없다.
+	따라서 배열로 선언된 char type 문자열을 주로 사용하는데, 이 문자열에 서식화된 문자열을 할당할 수 있는 함수가 sprintf이다.
+		string.h header에 있는 strcpy를 통해 배열에 문자열을 할당할 수 있지만, 서식화되어있지 않다.
+		서식화를 위해서는 sprintf를 통해 배열에 문자열을 할당하면 된다.
+			( 서식화? 사용자가 정의한 형식에 따라 화면에 출력되는 정보. %d:10진수 등..)
 
 C에서 이 Stream은 FILE Structure의 file pointer를 통해 다룰 수 있다.
 FILE Structure는 <stdio.h>에 정의되어있다.
