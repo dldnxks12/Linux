@@ -19,19 +19,24 @@ int main(int argc, char* argv[])
 	pid_t pid; // pid_t 구조체 -> process id를 담고 있는 type
 	var = 92;
 
+	// *** fork() 함수 호출 후 프로세스가 나뉘고, 바로 아랫 줄 부터 동시에 실행 ***
 	if((pid = fork()) < 0 ) // fork() 수행 오류
 	{
 		perror("[ERROR] : fork()");
-	}else if(pid == 0)
+	}else if(pid == 0) // child process에 대해서 수행
 	{
 		g_var++; // 전역 변수값 변화
 		var++;   // 지역 변수값 변화
 
 		printf("Parent %s from Child Process %d : %d\n", str, getpid(), getppid());
-	}else
+	}else 		  // parent process에 대해서 수행
 	{
 		printf("Child %s from Parent Process %d : %d\n", str, getpid(), getppid());
 		sleep(1);
+
+		// **** 부모 process는 자식 process보다 먼저 종료되면 안된다!
+		// 이렇게 되면 자식 process는 고아가 되고, 시스템에서는 주기적으로 고아 프로세스를 init 프로세스의 자식으로 등록시켜준다. 
+
 	}
 
 	printf("pid = %d, Global var = %d, var = %d\n", getpid(), g_var, var);
