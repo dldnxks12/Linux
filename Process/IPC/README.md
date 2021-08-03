@@ -37,7 +37,8 @@
 
 파이프 : 부모 프로세스와 자식 프로세스 사이에서만 Only 통신 가능 
 
-FIFO, 소켓, 메세지 큐, 공유 메모리 : 서로 관계없는 프로세스 사이에서도 통신 가능		                                                                                                                                                                                                                                                                                                                                                               
+FIFO, 소켓, 메세지 큐, 공유 메모리 : 서로 관계없는 프로세스 사이에서도 통신 가능		                                                                                                                                                                                                                                                                         ![111](https://user-images.githubusercontent.com/59076451/127955308-db00bcdb-1a70-40e8-a2a8-e48c7473e5fc.jpg)
+.jpg)                                                                                   
 
 #### IPC (Inter Process Communication)
 
