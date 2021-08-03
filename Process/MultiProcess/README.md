@@ -23,6 +23,8 @@ init process는 swapper를 복사해서 생성된다.
 
 	즉, ps 명령어와 more 명령어를 위한 2개의 프로세스를 생성하고, 파이프(|)를 이용해서 두 프로세스 간 IPC를 통해 내용을 전달하게 된다.
 
+![KakaoTalk_20210730_155623747](https://user-images.githubusercontent.com/59076451/127942226-f129fe34-bec4-4ed8-89bc-74542388ada2.jpg)
+
 
 - swapper를 제외한 프로세스들은 모두 부모 process에서 파생되어 나오기 때문에 ppid를 가진다.
 
@@ -56,6 +58,7 @@ exit()함수는 표준 입출력 정리 루틴을 수행하고 _exit() 함수를
 	
 	void exit(int status)  // C에서 0은 False , 1은 True지만 exit()에서는 1이 False, 0이 True!
 
+![KakaoTalk_20210803_101128033](https://user-images.githubusercontent.com/59076451/127942247-d56c605a-c8f5-49c0-86f8-db08be39ccbd.jpg)
 		
 #### 프로세스 생성 - fork()
 
