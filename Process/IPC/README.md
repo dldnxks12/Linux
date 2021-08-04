@@ -39,35 +39,35 @@
 
 - Header File 
 
-메세지 큐 : <sys/msg.h>
+	메세지 큐 : <sys/msg.h>
 
-세마포어  : <sys/sem.h>
+	세마포어  : <sys/sem.h>
 
-공유 메모리 : <sys/shm.h>
+	공유 메모리 : <sys/shm.h>
 
 - IPC 채널 생성/열기
 
-메세지 큐 : msgget()
+	메세지 큐 : msgget()
 
-세마포어 : semget()
+	세마포어 : semget()
 
-공유 메모리 : shmget()
+	공유 메모리 : shmget()
 
 - IPC 채널 제어/삭제 
 
-메세지 큐 : msgctl()
+	메세지 큐 : msgctl()
 
-세마포어 : semctl()
+	세마포어 : semctl()
 
-공유 메모리 : shmctl()
+	공유 메모리 : shmctl()
 
 - IPC 동작
 
-메세지 큐 : msgsnd(), msgrcv()
+	메세지 큐 : msgsnd(), msgrcv()
 
-세마포어 : semop()
+	세마포어 : semop()
 
-공유 메모리 : shmat(), shmdt()
+	공유 메모리 : shmat(), shmdt()
 
 
 - 네임스페이스 : 생성 가능한 채널 이름의 집합  (채널 : 우리 통신할 건데 채널을 열어야 통신을 하지 !)
