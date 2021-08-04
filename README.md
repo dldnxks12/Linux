@@ -1,6 +1,12 @@
 ### Linux Programming Directory
 
 
+- 참고서적
+
+	Linux Programming with Raspberry Pi
+
+
+
 #### command line arguments 
 
 	int main(int argc, char* argv)에 대한 이해가 어느 정도 필요
