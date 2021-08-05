@@ -252,3 +252,8 @@ FIFO는 파이프와 유사한 단방향 통신을 위한 방법
 	세마포어를 제어하거나 삭제
 
 		- semctl() 함수로 수행 
+		
+	
+#### 공유 메모리
+
+![KakaoTalk_20210805_161046853](https://user-images.githubusercontent.com/59076451/128307241-7d600f92-e974-4c5a-ae57-7c0446eb27fd.jpg)
