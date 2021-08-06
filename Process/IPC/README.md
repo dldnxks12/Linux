@@ -103,7 +103,7 @@
 		
 		UNIX V/XSI IPC 통신의 취약점을 보완하기 위해 발전된 통신 방법 
 
-		- UNIX V IPC 보다 더 직관적인 API로 사용하기 쉽다.
+		- UNIX V IPC 보다 더 직관적인 API로 사용하기 쉽다!
 	
 		- POSIX IPC 통신 방법은 file을 경유하지 않는다.
 
