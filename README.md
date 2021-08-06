@@ -18,8 +18,10 @@
 	
 			User Mode에서 프로그램은 메모리 및 하드웨어 자원에 직접 접근 불가능
 
-		대부분의 프로그램은 User Mode에서 실행된다. 하지만 프로그램의 실행 과정 중 메모리나 하드웨어 자원이 필요한 경우,
-	
+		대부분의 프로그램은 User Mode에서 실행된다. 
+		
+		하지만 프로그램의 실행 과정 중 메모리나 하드웨어 자원이 필요한 경우, 
+		
 		System Call을 사용해서 Kernel에 도움(요청)을 보낸다. 
 
 
@@ -27,6 +29,8 @@
 
 		위와 같은 모드 전환을 Context Switching이라 한다.
 
+
+![111](https://user-images.githubusercontent.com/59076451/128521933-0d869f67-8f67-469a-8fab-32baa0a197e3.PNG)
 
 
 	- Library Call 
@@ -47,6 +51,8 @@
 
 		Library Call : 프로그램이 프로그래밍 라이브러리에 정의된 기능에 접근하기 위한 요청 
 
+
+![222](https://user-images.githubusercontent.com/59076451/128522056-0a124898-3fd8-4026-a5a0-6e2872378a1b.PNG)
 
 
 	- read() / write  , fread() / fwrite() 비교
