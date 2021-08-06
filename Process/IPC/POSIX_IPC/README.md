@@ -31,5 +31,5 @@
 	추가적으로 mq_notify() 함수로 비동기적으로 오는 메세지에 대해 알람을 받을 수 있다. 
 
 
-
+![55](https://user-images.githubusercontent.com/59076451/128531377-7d732cb5-178c-4bd7-ac3c-499e411f05a4.PNG)
 	
