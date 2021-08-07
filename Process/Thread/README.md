@@ -24,6 +24,8 @@
 
 		공유되는 영역은 text 영역 (기계어 코드), data 영역 (변수), file(heap) 영역이다.
 
+	![333](https://user-images.githubusercontent.com/59076451/128603079-54cf9b4c-f8e6-446e-9ce4-265cd7483476.PNG)
+
 
 #### Thread
 
@@ -42,6 +44,8 @@
 			이 문제를 해결하기 위해서 Thread 동기화 방법을 사용한다 - * Mutex 
 
 	일반적으로 Thread 간에 전역 변수, Heap 메모리, 파일 디스크립터 등을 공유한다.
+
+	![444](https://user-images.githubusercontent.com/59076451/128603139-b3d26537-8dbf-4ca3-818b-b6e577a0a459.jpg)
 
 	프로세스와 마찬가지로 여러 가지일을 동시에 할 수 있지만, context switching이 프로세스보다 빠르다.
 
