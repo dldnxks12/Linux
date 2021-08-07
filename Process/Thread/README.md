@@ -55,13 +55,15 @@
 
 	일반적으로 Thread 간에 전역 변수, Heap 메모리, 파일 디스크립터 등을 공유한다.
 
-![444](https://user-images.githubusercontent.com/59076451/128603139-b3d26537-8dbf-4ca3-818b-b6e577a0a459.jpg)
-
 	프로세스와 마찬가지로 여러 가지일을 동시에 할 수 있지만, context switching이 프로세스보다 빠르다.
 
 	또한 공유되는 메모리를 이용하므로 스레드 간의 통신이 IPC보다 간단하다.
 
 		Context switching ? Kerner mode <-> User mode 의 mode Switching을 의미
+		
+![66](https://user-images.githubusercontent.com/59076451/128603441-a9140f91-1160-4fbe-8685-52bef6852327.jpg)
+
+![444](https://user-images.githubusercontent.com/59076451/128603139-b3d26537-8dbf-4ca3-818b-b6e577a0a459.jpg)		
 
 
 
