@@ -26,6 +26,16 @@
 
 ![333](https://user-images.githubusercontent.com/59076451/128603079-54cf9b4c-f8e6-446e-9ce4-265cd7483476.PNG)
 
+	위 그림과 같이 예를 들어 Thread가 3개 일 경우
+
+	각각의 thread가 특정 시점에 프로그램의 특정 부분을 실행한다고 해보자.
+
+	그렇게 하기 위해서는 CPU의 program counter(레지스터)와 stack을 독립적으로 가져야한다.
+
+		각 thread가 서로 다른 부분을 수행하기 때문에 서로 다른 stack을 가진다.
+
+		각 thread가 서로 다른 시각에 수행되기 때문에 서로 다른 PC를 가진다.
+
 
 #### Thread
 
