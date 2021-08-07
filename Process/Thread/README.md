@@ -66,6 +66,10 @@
 ![444](https://user-images.githubusercontent.com/59076451/128603139-b3d26537-8dbf-4ca3-818b-b6e577a0a459.jpg)		
 
 
+#### Thread 예제 1 실행결과
+
+![thread1](https://user-images.githubusercontent.com/59076451/128605349-f77c1171-a917-4d95-b4b8-bd0a912ee00d.PNG)
+
 
 
 
