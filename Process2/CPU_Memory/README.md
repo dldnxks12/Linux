@@ -45,6 +45,8 @@
 
 			init() process..
 
+![11](https://user-images.githubusercontent.com/59076451/128600144-b662a5e7-ac45-4756-9ef2-8f67d7f5f74f.jpg)
+
 
 #### 가상 메모리
 
@@ -57,6 +59,6 @@
 		필요한 순간에 물리적 주소를 할당받거나, 의도적으로 접근 금지 페이지로 남겨 둔 경우..
 
 
-
+![22](https://user-images.githubusercontent.com/59076451/128600146-ef936d89-be36-4307-b09d-d6bc2a8752f9.jpg)
 
 
