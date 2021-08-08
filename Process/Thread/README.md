@@ -71,7 +71,33 @@
 ![thread1](https://user-images.githubusercontent.com/59076451/128605349-f77c1171-a917-4d95-b4b8-bd0a912ee00d.PNG)
 
 
+#### Thread API
 
+	1. thread 생성
+
+		pthread_create()
+
+	2. thread 대기
+
+		pthread_join()
+
+	3. thread 분리
+
+		pthread_detach()
+
+	4. thread id get
+
+		pthread_self()
+
+	5. thread 종료
+
+		pthread_exit()
+
+	6. thread 취소
+
+		pthread_cancel()
+
+	
 
 
 	
