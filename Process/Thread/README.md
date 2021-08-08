@@ -68,8 +68,9 @@
 
 #### Thread 예제 1 실행결과
 
-![thread1](https://user-images.githubusercontent.com/59076451/128605349-f77c1171-a917-4d95-b4b8-bd0a912ee00d.PNG)
+![thread1](https://user-images.githubusercontent.com/59076451/128605349-f77c1171-a917-4d95-b4b8-bd0a912ee00d.PNG) 
 
+위 실행결과와 같이 main thread는 sub thread들이 일을 모두 마칠 때 까지 종료되어서는 안된다. 
 
 #### Thread API
 
@@ -116,7 +117,7 @@
 
 	위 실행 결과를 살펴보면 cnt 값이 뒤죽박죽으로 변하는 것을 확인할 수 있다.
 
-	이는 공유 자원인 cnt 변수에 2개의 thread가 동시다발적으로 접근해서 겂을 바꾸기 때문이다.
+	이는 공유 자원인 cnt 변수에 2개의 thread가 동시다발적으로 접근해서 을 바꾸기 때문이다.
 
 
 	이 같은 문제를 해결하기 위해 어떤 방법을 사용해야 할까?
