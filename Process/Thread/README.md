@@ -111,7 +111,8 @@
 		특정 thread가 코드 구역에 들어가 단독으로 일을 할 수 있게 동기화를 해주는 기법
 
 	Mutex 사용의 이해를 위해 No_mutex.c code를 실행시켜보면서 상황을 이해해보자.
-
+	
+![error](https://user-images.githubusercontent.com/59076451/128639009-4eda2fe2-d49a-47fc-a66d-2a5368a281b7.PNG)
 
 	위 실행 결과를 살펴보면 cnt 값이 뒤죽박죽으로 변하는 것을 확인할 수 있다.
 
@@ -148,3 +149,5 @@
 	6. int pthread_mutex_destroy()   --- 뮤텍스 해제 
 
 		- 뮤텍스의 사용이 다 끝나면 해제해주자.
+
+![mutexOn](https://user-images.githubusercontent.com/59076451/128639013-54d7fcee-403c-4ea7-9958-24250aeb6ca2.PNG)
