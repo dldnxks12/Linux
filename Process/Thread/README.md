@@ -98,6 +98,53 @@
 		pthread_cancel()
 
 	
+#### Mutex (MutEx - Mutual Exclusion : 상호 배제)  
+
+	critical section은 한 번에 한 Thread만 진입해야하는 특정 코드 구역을 말한다.
+
+	즉, 공유 자원이 변경이 일어날 수 있는 공간인데, 동시에 두 개 이상의 thread가 이 값을 변경 시키면 문제가 생긴다.
+
+	이를 위해 Mutex 기법을 사용한다. 
+
+	Mutex 
+
+		특정 thread가 코드 구역에 들어가 단독으로 일을 할 수 있게 동기화를 해주는 기법
+
+	Mutex 사용의 이해를 위해 No_mutex.c code를 실행시켜보면서 상황을 이해해보자.
 
 
+	위 실행 결과를 살펴보면 cnt 값이 뒤죽박죽으로 변하는 것을 확인할 수 있다.
+
+	이는 공유 자원인 cnt 변수에 2개의 thread가 동시다발적으로 접근해서 겂을 바꾸기 때문이다.
+
+
+	이 같은 문제를 해결하기 위해 어떤 방법을 사용해야 할까?
+
+	해당 임계 영역에 먼저 들어갈 thread가 들어가면서 열쇠를 걸어잠구고, 나올 때 열어 주면 된다!
+
+		Mutex는 세마포어의 일종으로 세마포어 자원이 1인 경우라고 생각할 수 있다.
+
+	Mutex 관련 함수는 다음과 같다.
+
+	1. int pthread_mutex_init()     --- 뮤텍스를 사용하기 위한 생성 및 초기화 
+
+		뮤텍스가 생성되면 해당 뮤텍스에 대한 ID가 pthread_mutex_t type으로 설정된다.
+
+	2. int pthread_mutex_lock()     --- 뮤텍스 잠금
+
+		위 함수는 다른 thread가 이미 lock을 한 상태라면 무한정 기다리는데, 이 때문에 문제가 발생하기도 한다.
+
+	3. int pthread_mutex_unlock()   --- 뮤텍스 해제
+
+
+	4. int pthread_mutex_trylock()  --- 뮤텍스 잠금 확인 1
+
+		- 위 함수는 mutex가 잠겨있는지 확인하고, 임계 영역에 들어갈 수 없다면 바로 다음 코드로 넘어간다.
+
+	5. int pthread_mutex_timedlock() --- 뮤텍스 잠금 확인 2
 	
+		- 위 함수는 mutex가 잠겨있는지 확인하고, 잠겨있다면 일정 시간 동안 대기해본다.
+
+	6. int pthread_mutex_destroy()   --- 뮤텍스 해제 
+
+		- 뮤텍스의 사용이 다 끝나면 해제해주자.
