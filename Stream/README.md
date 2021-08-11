@@ -19,7 +19,15 @@
 
 	커널이 stream을 열 때, 이 stream에 대해 특수한 번호를 제공하는데 이것이 fd이다.
 
-	fd를 이용해서 특정 stream에 접근, 사용 사용할 수 있다.
+		(Stream A의 이름 = 1  , Stream B의 이름 = 2 ... ) 
+
+	따라서 fd를 이용해서 특정 stream에 접근, 사용 사용할 수 있다.
+
+	* Basic fd setting (defualt setting)
+
+		fd 0 : stdin
+		fd 1 : stdout
+		fd 2 : stderr 
 
 
 #### FILE type - p 93 모두를 위한 ~
