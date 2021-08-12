@@ -42,5 +42,7 @@
 			-로 시작하는 문자열을 인자로 전달하고 싶을 때 사용한다.
 
 
+![image](https://user-images.githubusercontent.com/59076451/129201666-75a163e1-50eb-435c-8371-4ffd7dcfa3f9.png)
+
 
 	자세한 내용 : head_parser.c code 참조
