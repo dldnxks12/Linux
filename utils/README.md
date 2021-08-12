@@ -11,6 +11,45 @@
 
 ![111](https://user-images.githubusercontent.com/59076451/127943334-384b000e-9290-4d26-b451-09883c8a9b60.PNG)
 
+#### Debugging with gdb
+
+	gbd debugger install 
+
+		sudo apt install gbd
+
+	Debugging 연습을 위해 head_parsing.c code의 getopt_long() 인자에 버그를 심어보자.
+
+	getopt_long(... , "n"  , ...)으로 code를 바꾼다 
+
+		매개변수를 받을 인자는 "n:"로 선언하여야하므로, 
+
+		./head_parser -n 5 를 선언하면 Segmentation fault를 비정상 종료한다.
+
+		# -------- #
+		case 'n':
+			nlines = atol(optarg); 
+		# -------- #
+
+		위 부분에서 optarg의 값이 NULL이므로 Error가 발생한다.
+
+	gdb를 사용하려면 사전에 gcc에 -g 옵션을 붙여서 Compile해야한다.
+
+		ex) gcc -o -g -Wall head_parser_debug head_parser_debug.c
+
+
+	이후 다음과 같이 디버깅을 시작한다.
+
+		gbd ./head_parser_debug
+
+	Debug Command
+
+		backtrace : backtrace 표시
+		frame N   : frame N 보기
+		list      : 현재 함수의 소스 코드를 표시
+		print EXPR: (EXPR의 값 표시)
+		quit      : gbd 종료 
+		...
+
 
 #### exit(0), exit(1), return ?
 
