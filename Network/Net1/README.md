@@ -11,6 +11,12 @@
 
 			반대로 서버에 접속해서 어떤 작업을 수행하는 프로세스를 "클라이언트 프로세스"라고 한다. 
 
+<div align=center>
+	
+![image](https://user-images.githubusercontent.com/59076451/130128897-8869f6a2-9218-4f83-8a01-65a9337687e9.png)
+	
+</div>	
+
 		
 
 		그럼 어떤 서버 프로세스가 어떤 Port로 대기 중인지 알 수 있는 방법은 뭘까?
