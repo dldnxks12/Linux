@@ -10,13 +10,13 @@
 
 	UNIX에서 UDP 프로토콜을 이용한 통신을 하려면 socket() 함수의 인자로 SOCK_DGRAM을 설정하면 된다.
 
-
-
 	UDP 서버와 클라이언트 사이의 통신 설정 구조 
 
-	
-	<이미지>
+<div align=center>
 
+![image](https://user-images.githubusercontent.com/59076451/130133942-46643306-760c-4164-b482-a474f5ffd7c5.png)
+
+</div>
 
 	일반적으로 UDP 서버와 클라이언트의 구현 방법은 비슷하다.
 
@@ -24,7 +24,6 @@
 
 	연결(등록)해주어야 한다. 
 
-	
 	UDP 서버와 클라이언트 모두 recvfrom() , sendto() 함수를 통해 데이터그램을 주고 받는다. 
 
 	소켓 사용이 모두 끝나면 close() 함수를 써서 닫아주자!
