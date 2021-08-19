@@ -9,7 +9,12 @@
 
 		이 Socket은 스트림을 연결하기 위해 사용한다. 
 
-		
+<div align=center>
+	
+![image](https://user-images.githubusercontent.com/59076451/130129008-510a831e-894c-4907-80cc-ba7e3f013b88.png)
+	
+</div>	
+
 	Client Socket API
 
 		Client 쪽에서 서버에 스트림을 연결하기 위해서는 다음의 두 가지 API를 사용한다. 
