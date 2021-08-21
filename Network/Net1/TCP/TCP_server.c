@@ -43,8 +43,9 @@ int main(int argc, char* argv[]){
   // cliaddr의 크기
   clen = sizeof(cliaddr);
   do{
+    
+    int n;    
     // 클라이언트가 접속하면 허용하고 (accept()) , 클라이언트 소켓 생성
-    int n;
     int csock = accept(ssock, (struct sockaddr)&cliaddr, &clen); // accept 될 때마다 csock 생성하고 , 끝나면 해당 소켓은 닫을 것 
     
     // 숫자 네트워크 주소를 문자열로 변환
