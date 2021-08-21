@@ -66,19 +66,19 @@
 
 	
 
-		bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen)
+	bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen)
 
-			1. sockfd  : socket의 file descriptor
-			2. *addr   : UDP 서버의 주소 정보
-			3. addrlen : 주소의 크기 
+		1. sockfd  : socket의 file descriptor
+		2. *addr   : UDP 서버의 주소 정보
+		3. addrlen : 주소의 크기 
 
 	주소 체계는 사용하는 도메인에 따라 다르다.
 
-	1. Unix 내부에서 통신을 하는 경우
+	Unix 내부에서 통신을 하는 경우
 
 		sockaddr_un 구조체를 사용하고, 주소로 파일의 위치를 사용한다.
 
-	2. Network 통신을 사용하는 경우
+	Network 통신을 사용하는 경우
 
 		sockaddr_in 구조체를 사용하고, 서버의 IP 주소와 포트 번호를 사용한다. 
 
