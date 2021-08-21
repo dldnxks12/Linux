@@ -4,7 +4,6 @@
 
 - UDP 
 
-
 	UDP 프로토콜은 데이터의 전송 시 신뢰성은 없지만 일단 속도가 빠르다.
 
 	따라서 데이터의 유실이 적은 LAN 환경에서 자주 사용한다. 
@@ -31,7 +30,6 @@
 ---
 
 - Socket
-
 
 	UNIX에서 인터넷 통신을 하기 위해서는 먼저 소켓을 생성해야한다. - socket() 
 
@@ -65,13 +63,30 @@
 			bind()함수는 TCP 서버에도 사용한다!
 
 	
-
 	bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen)
 
 		1. sockfd  : socket의 file descriptor
 		2. *addr   : UDP 서버의 주소 정보
 		3. addrlen : 주소의 크기 
 
+---
+
+- UDP data 송/수신 - read(), write(), recvfrom(), sendto(), connect() ... 
+
+	TCP의 경우 서버가 연결되어있기 때문에 read(), write() 같은 fd를 조작하는 함수를 이용해서 데이터를 송수신할 수 있다.
+
+	하지만 UDP의 경우 서버와 연결되어 있지 않으므로 다른 함수를 사용해야한다 - recvfrom(), sendto()
+
+		UDP는 sendto() 함수에 데이터를 받을 상대방의 정보(주소와 포트 번호)를 입력한다.
+
+		UDP는 recvfrom() 함수로 데이터를 보낸 상대방의 정보를 받아올 수 있다.
+
+
+	하나의 서버랑만 통신하는 경우라면 UDP도 connect() 함수를 이용해서 서버에 접속하고 read(), write() 함수를 통해서 통신을 수행할 수 있다.
+
+		일반적으로 recvfrom(), sendto()함수는 데이터를 주고 받을 때 네트워크를 연결하고, 용무가 끝나면 연결된 네트워크를 끊는다. 
+
+		하지만 connect() 를 이용하면 네트워크 연결을 지속할 수 있기 때문에 빠른 속도로 데이터를 주고 받을 수 있다.
 
 ---
 
@@ -102,6 +117,44 @@
 ---
 
 
+- Byte 순서 변환 (Big Endian & Little Endian)
+
+			Intel 계열 CPU : Little Endian
+
+			SUN 계열 CPU   : Big Endian 
+
+	네트워크 상에서는 데이터를 보내는 순서에 따라 Endian이 달라질 수 있다. 
+
+	데이터는 순차적으로 보내지는데, 이런 이유로 Big Endian이 더 적합하다 - 앞 대가리 먼저 보내기
+
+	이를 **네트워크 바이트 순서** 라고 하는데, 송/수신 데이터 모두 Big Endian으로 생각하고 처리해야한다.
+
+			일반적으로 PC에서 사용하고 있는 CPU는 Intel 계열 .. (little endian)
+
+			따라서 Endian 변환이 필요할 수 있는데, UNIX에서 이를 위한 다양한 함수를 제공한다.
+
+
+	hton : host to network의 endian 변환
+	
+	ntoh : network to host의 endian 변환 
+	
+	
+			IP주소는 32bit 이므로, Long형인 htonl()을 사용하면 되고, Port 번호는 16bit 이므로, short형인 htons()를 사용하면 된다.
+			
+---
+
+- 네트워크 주소 변환 - p351
+
+
+	IP 주소의 경우 '127.0.0.1'과 같은 문자열을 사용하는데, sockaddr_in의 sin_addr에 사용하는 값은 16진수의 정수값이다.
+
+	따라서 이 문자열을 16진수로 변환해야한다. 
+
+		문자열 '127.0.0.1'을 16진수 또는 2진수의 숫자로 된 IP 주소로 바꾸고 싶다면 POSIX 버전의 inet_pton()함수를 사용할 수 있다. 
+
+
+
+	
 			
 
 
