@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
   memset(&servaddr, 0, sizeof(servaddr));
   servaddr.sin_family = AF_INET;  
   // argv[1] : 연결할 서버의 IP 주소 
-  inet_pton(AF_INET, argv[1], ,&(servaddr.sin_addr.s_addr));
+  inet_pton(AF_INET, argv[1], &(servaddr.sin_addr.s_addr));
   servaddr.sin_port = htons(TCP_PORT);
   
   // 지정한 주소로 접속 !  - connect(0
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
   
   memset(msg, 0, BUFSIZ); // msg buffer 비우기
   if(recv(ssock, msg, BUFSIZ, 0) <= 0){ // 소켓으로 부터 데이터를 읽기 
-    perror("recv()")'
+    perror("recv()");
     return -1;
   }
   

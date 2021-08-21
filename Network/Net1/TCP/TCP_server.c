@@ -46,10 +46,10 @@ int main(int argc, char* argv[]){
     
     int n;    
     // 클라이언트가 접속하면 허용하고 (accept()) , 클라이언트 소켓 생성
-    int csock = accept(ssock, (struct sockaddr)&cliaddr, &clen); // accept 될 때마다 csock 생성하고 , 끝나면 해당 소켓은 닫을 것 
+    int csock = accept(ssock, (struct sockaddr*)&cliaddr, &clen); // accept 될 때마다 csock 생성하고 , 끝나면 해당 소켓은 닫을 것 
     
     // 숫자 네트워크 주소를 문자열로 변환
-    inet_ntop(AF_INET, &cliaddr.sin_addr, mg, BUFSIZ);
+    inet_ntop(AF_INET, &cliaddr.sin_addr, msg, BUFSIZ);
     printf("Client is Connected : %s\n", msg);
     
     if((n = read(csock, msg, BUFSIZ)) <= 0){    
