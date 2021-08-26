@@ -11,24 +11,25 @@ int main(int argc, char* argv[]){
   int ssock;       // socket descriptor
   socklen_t clen;  // addr 구조체 length
   int n;
-  
-  struct sockaddr_in servaddr, cliaddr;
+
+  struct sockaddr_in servaddr, cliaddr; // Network 통신용 구조체 (Unix 내에서 통신할 거면 sockaddr_un 사용)
   char msg[BUFSIZ];
   
   // Server Socket 생성
-  if((ssock = socket(AF_INET, SOCK_STREAM, 0)) < 0){
+  if((ssock = socket(AF_INET, SOCK_STREAM, 0)) < 0){ // SOCK_STREAM : TCP 통신 flag
     
       perror("socket()");
       return -1;
    }
   
-  // Addr 구조체에 주소 지정 
+  // Addr 구조체에 주소 지정하기전 구조체 0으로 초기화 시켜주기
   memset(&servaddr, 0, sizeof(servaddr));
   servaddr.sin_family = AF_INET;
   servaddr.sin_addr.s_addr = htonl(INADDR_ANY); // 서버 자신의 IP 주소를 사용해야 하는데, INADDR_ANY flag를 사용하면 알아서 내 IP주소를 찾아서 할당해준다. 
   servaddr.sin_port = htons(TCP_PORT);
   
   // bind() 함수를 통해서 서버 소켓의 주소 설정
+  // sockaddr_in과 sockaddr_un을 Wrapping하는 구조체 sockaddr로 casting해서 bind해준다.
   if ( bind(ssock, (struct sockaddr*)&servaddr, sizeof(servaddr)) < 0){  
       perror("bind()");
       return -1;    
