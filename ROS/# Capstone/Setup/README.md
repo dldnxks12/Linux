@@ -17,3 +17,6 @@
       
      
       
+- firewall
+
+      https://redcow77.tistory.com/205
