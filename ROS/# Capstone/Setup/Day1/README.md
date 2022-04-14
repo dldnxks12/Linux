@@ -5,7 +5,6 @@
         1. Check Lidar data with ROS2 topic - ok
         2. Process lidar data and toss it to GAZEBO world -> make some controller -ok
 
-<br>
 
 ### Lidar data type
 
@@ -20,7 +19,6 @@
       source /opt/ros/foxy/setup.bash
       . install/setup.bash
 
-<br>
 
 - Terminal 1
 
@@ -29,7 +27,6 @@
       export TURTLEBOT3_MODEL=burger      
       ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
        
-<br>
 
 - Terminal 2
 
@@ -37,7 +34,6 @@
       
       ros2 run capston lidar_topic_check
 
-<br>
 
 - Terminal 3
 
