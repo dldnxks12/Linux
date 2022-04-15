@@ -1,48 +1,35 @@
-'''
-import rclpy
-import capstone.comm as comm
+import math 
+import numpy as np
+from sensor_msgs.msg import LaserScan # Lidar Data
 
-def main():
-    rclpy.init(args = None)
-
-    my_controller_subscriber = comm.ClientSubscriber()
-    rclpy.spin_once(my_controller_subscriber)  # Once in a while loop
-
-    my_controller_subscriber.destroy_node()
-    rclpy.shutdown
-
-if __name__ == '__main__':
-    main()
-
-'''
-
-import rclpy
-import time
-import capstone.comm as comm
-
-def main():
-    rclpy.init(args = None)
-
-    # Create Publish / Subscriber Object
-    my_controller_publisher  = comm.ClientPublisher()
-    my_controller_subscriber = comm.ClientSubscriber()
-
-    while(1):
-        # Keep Publisher Node working
-        rclpy.spin_once(my_controller_publisher)   # Once in a while loop
-        rclpy.spin_once(my_controller_subscriber)  # Once in a while loop
+class FurthestDrive:
+    def process_lidar(self, ranges):
         
-        lidar_data = my_controller_subscriber.return_lidar_data() # Return processed lidar data
-        speed, angle = my_controller_publisher.get_speed_angle(lidar_data) # Return speed, angle
+        NUM_RANGE = len(ranges)                # Range of Lidar Scan : 360 degree
+        ANGLE_BETWEEN = 2*np.pi / NUM_RANGE   # 2PI / 360 = 1 radian 
+        #ANGLE_BETWEEN = 360 / NUM_RANGE        # 360 / 360 = 1 degree  
 
-        # Publish Speed, angle to Gazebo robot 
-        my_controller_publisher.set_speed_angle(speed, angle)
+        NUM_PER_QUADRANT = NUM_RANGE // 4     # Divide lidar range into 4 parts
 
+        #Find the furthest index at 2, 3 portion 
+        #index = np.argmax(ranges[NUM_PER_QUADRANT + 45 : - (NUM_PER_QUADRANT + 45)]) # 135 ~ 225 degree (90 range)
+        index = np.argmax(ranges[NUM_PER_QUADRANT + 30 : - (NUM_PER_QUADRANT + 30)]) # 120 ~ 240 degree (120 range)
+        # index = np.argmax(ranges[NUM_PER_QUADRANT : - NUM_PER_QUADRANT]) # 90 ~ 270 (180 range)
+        #index = np.argmax(ranges[:]) # 0 ~ 360 
+        max_index = NUM_PER_QUADRANT + index
 
-    # Finish
-    my_controller_publisher.destroy_node()
-    my_controller_subscriber.destroy_node()
-    rclpy.shutdown
+        # get steering angle 
+        '''
+            forward = 0 degree
+            left part = negative degree
+            right part = positive degree
 
-if __name__ == '__main__':
-    main()
+            ex max_index = 10 -> steering angle = -170 degree
+        '''
+        steering_angle = max_index * ANGLE_BETWEEN - (NUM_RANGE // 2) * ANGLE_BETWEEN
+        speed = 0.1        
+
+        # steering_angle : rad 
+        # speed : m/s
+        return speed, steering_angle
+
