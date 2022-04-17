@@ -1,0 +1,62 @@
+<sdf version='1.5'>
+
+
+    <!-- Draw Circle -->
+    <model name='ros_symbol'>
+      <static>1</static>
+      <link name='symbol'>
+
+      <visual name='tube'>
+        <pose>-2.5 10 0.25 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://model.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='tube'>
+        <pose>-2.5 10 0.25 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='tube_two'>
+        <pose>-1 10 0.25 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://model.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='tube_two'>
+        <pose>-1 10 0.25 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='tube_three'>
+        <pose>-10 3 0.25 0 0 90</pose>
+        <geometry>
+          <mesh>
+            <uri>model://model.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='tube_three'>
+        <pose>-10 3 0.25 0 0 90</pose>
+        <geometry>
+          <mesh>
+            <uri>model://model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>      
+
+    </link>
+  </model>
+</sdf>
