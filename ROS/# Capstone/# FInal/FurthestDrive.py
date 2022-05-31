@@ -9,7 +9,7 @@ class FollowTheGap:
 
     MAX_LIDAR_DIST = 30
 
-    STRAIGHTS_SPEED = 0.1 # Modifying ...
+    STRAIGHTS_SPEED = 0.1   # Modifying ...
     CORNERS_SPEED   = 0.1   # Modifying ...
 
     STRAIGHTS_STEERING_ANGLE = np.pi / 180   # 1 radian 
@@ -30,11 +30,8 @@ class FollowTheGap:
         return proc_ranges
 
 
-    def find_max_gap(self, free_space_ranges): # free_space_ranges 에는 bubble zone이 포함되어 있다.
-        """
-            Return the start index & end index of the max gap in free_space_ranges
-            free_space_ranges: list of LiDAR data which contains a 'bubble' of zeros
-        """
+    def find_max_gap(self, free_space_ranges): # free_space_ranges 에 bubble zone 포함
+
         masked = np.ma.masked_where(free_space_ranges == 0, free_space_ranges)
         slices = np.ma.notmasked_contiguous(masked) 
 
