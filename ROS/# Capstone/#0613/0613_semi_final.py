@@ -1,3 +1,27 @@
+############# Used Method ##############
+
+# Camera Calibration
+# Side Walk Segmentation 
+# Remove noise with Morpholgy - Opening
+# Get Contours and select biggest Area Contour
+# HoughLinesP
+# Get Main Left / Right Line
+# Get ROI 
+# Interpolation
+# Line Moving Average
+
+#### Remove ####
+
+	# Canny Edge
+
+#### Todo ####
+
+	# Bird-eye-view
+	# Angle / Distance
+	# Communication relate work
+
+########################################
+
 import os   # Terminal Control
 import sys  # Terminal Control 
 import cv2
@@ -144,8 +168,6 @@ Left_Avg_points_temp  = 0
 Right_Avg_points_temp = 0
 
 # Flags
-Left_line_flag           = False 
-Right_line_flag          = False 
 Left_line_interpolation  = 0
 Right_line_interpolation = 0
 No_line_flag             = 0
@@ -217,10 +239,6 @@ try:
 
 		_, opening = cv2.threshold(opening, 127, 255, cv2.THRESH_BINARY)
 
-		merge_pre = np.hstack((gray, opening))
-		#cv2.imshow("opening", merge_pre)
-
-
 		# Get Contour of ROI Image (draw external contour only)
 		contours, hierachy = cv2.findContours(opening, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 		if len(contours) > 0 :
@@ -232,7 +250,7 @@ try:
 					max_cntr = i
 
 			# Normal Contours
-			#cv2.drawContours(canvas2, [cntr], -1, (0, 255, 0), 1)
+			# cv2.drawContours(canvas2, [cntr], -1, (0, 255, 0), 1)
 
 			# Simplify Contours
 			#epsilon = 0.05 * cv2.arcLength(cntr, True)
@@ -243,10 +261,9 @@ try:
 			hull = cv2.convexHull(max_cntr)
 			cv2.drawContours(canvas2, [hull], -1, (255, 255, 255), 1)
 
-		cv2.imshow("Preprocessed Image", canvas2)
+		cv2.imshow("Preprocessed Contour Image", canvas2)
 
-		# Make Canny ROI
-		# canny          = cv2.Canny(opening, 50, 200, None, 3)
+		# Make ROI
 		height, width  = canvas2.shape[:2]
 		vertices = np.array([[(0,height),(width/2-120, height/2 - 30), (width/2+120, height/2 - 30), (width,height)]], dtype=np.int32)  
 		ROI_IMG = ROI(canvas2, vertices)
@@ -257,10 +274,7 @@ try:
 		# vertices = np.array([[(0,height),(width/2-120, height/2 - 30), (width/2+120, height/2 - 30), (width,height)]], dtype=np.int32)  
 		# color_ROI = ROI(color_image, vertices)        
 
-		lines      = cv2.HoughLinesP(ROI_IMG, 1, np.pi/180, 50, None, 30, 20)	        
-
-		Left_line_flag        = False 
-		Right_line_flag       = False
+		lines      = cv2.HoughLinesP(ROI_IMG, 1, np.pi/180, 50, None, 30, 20)	       
 
 		if lines is not None:
 			No_line_flag = 0             
@@ -283,7 +297,6 @@ try:
 
 			# Get Main Line of Left Side and moving average
 			if len(L_lines) > 0:
-				Left_line_flag = True
 				Left_line_interpolation = 0 				
 				left_fit_line  = get_fitline(ROI_IMG, L_lines)
 
@@ -322,7 +335,6 @@ try:
 
 			# Get Main Line of Right Side and moving average
 			if len(R_lines) > 0:
-				Right_line_flag = True
 				Right_line_interpolation = 0 
 				right_fit_line  = get_fitline(ROI_IMG, R_lines)
 
@@ -377,11 +389,9 @@ try:
 		# Middle Line
 		cv2.line(canvas, (240, 272), (240, 136), (0,0,255), 1, cv2.LINE_AA)
 
-		#Show images						
-		#merge = np.hstack((color_image, color_ROI))			
-		#cv2.imshow("Color", merge)				
+		#Show images									
 		cv2.imshow("Color", color_image)
-		cv2.imshow("ROI_IMG", ROI_IMG)
+		cv2.imshow("ROI_IMG", ROI_IMG)		
 		cv2.imshow("Detected Lines", canvas)
 
 		cv2.waitKey(1)
